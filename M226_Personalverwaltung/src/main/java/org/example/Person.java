@@ -29,6 +29,22 @@ public class Person{
         setM_Pensum(100);
     }
 
+    public Person(int PersNr){
+        setM_PersNr(m_PersNr);
+    }
+    public Person(int PersNr, String Anrede, String Name, String Vorname){
+        setM_PersNr(PersNr);
+        setM_Anrede(Anrede);
+        setM_Name(Name);
+        setM_Vorname(Vorname);
+    }
+    public Person(int PersNr, String Name, String Vorname, int Eintrittsjahr){
+        setM_PersNr(PersNr);
+        setM_Name(Name);
+        setM_Vorname(Vorname);
+        setM_Eintrittsjahr(Eintrittsjahr);
+    }
+
     public int getM_PersNr() {
         return m_PersNr;
     }
@@ -82,7 +98,7 @@ public class Person{
     }
 
     public void setM_Eintrittsjahr(int m_Eintrittsjahr) {
-        if(this.m_Eintrittsjahr<1975||this.m_Eintrittsjahr>2020){
+        if(this.m_Eintrittsjahr<1975||this.m_Eintrittsjahr>java.time.LocalDate.now().getYear()){
             //Alert
         }
         else {
