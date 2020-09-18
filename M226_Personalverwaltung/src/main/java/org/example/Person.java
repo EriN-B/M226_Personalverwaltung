@@ -2,5 +2,14 @@ package org.example;
 
 public class Person{
 
-    public String test = "Erin";
+    private int m_PersNr;
+    private String m_Andrese;
+    private
+    private
+    private
+    private
+    private
+    private
+    private
+    private
 }
