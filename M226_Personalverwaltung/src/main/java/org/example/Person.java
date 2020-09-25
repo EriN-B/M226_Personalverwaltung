@@ -32,6 +32,7 @@ public class Person{
     public Person(int PersNr){
         setM_PersNr(m_PersNr);
     }
+
     public Person(int PersNr, String Anrede, String Name, String Vorname){
         setM_PersNr(PersNr);
         setM_Anrede(Anrede);
