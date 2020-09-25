@@ -1,5 +1,6 @@
 package org.example;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
@@ -16,34 +17,34 @@ public class Person{
     private double min_Salaer = 0.00;
     private double max_Salaer = 99999.00;
     private double m_Pensum;
+    private static int sAnzahlPersonen = 0;
 
     public Person(){
-        setM_PersNr(-1);
+        setM_PersNr(sAnzahlPersonen);
         setM_Anrede("Frau");
         setM_Name("Neue Person");
         setM_Vorname("");
         setM_Plz("6000");
         setM_Ort("Luzern");
-        setM_Eintrittsjahr(java.time.LocalDate.now().getYear());
+        setM_Eintrittsjahr(Calendar.getInstance().get(Calendar.YEAR));
         setM_Salaer(5000.00);
         setM_Pensum(100);
     }
 
-    public Person(int PersNr){
-        setM_PersNr(m_PersNr);
-    }
-
-    public Person(int PersNr, String Anrede, String Name, String Vorname){
-        setM_PersNr(PersNr);
+    public Person(String Anrede, String Name, String Vorname){
+        setM_PersNr(sAnzahlPersonen);
         setM_Anrede(Anrede);
         setM_Name(Name);
         setM_Vorname(Vorname);
+        sAnzahlPersonen++;
+
     }
-    public Person(int PersNr, String Name, String Vorname, int Eintrittsjahr){
-        setM_PersNr(PersNr);
+    public Person(String Name, String Vorname, int Eintrittsjahr){
+        setM_PersNr(sAnzahlPersonen);
         setM_Name(Name);
         setM_Vorname(Vorname);
         setM_Eintrittsjahr(Eintrittsjahr);
+        sAnzahlPersonen++;
     }
 
     public int getM_PersNr() {
@@ -99,7 +100,7 @@ public class Person{
     }
 
     public void setM_Eintrittsjahr(int m_Eintrittsjahr) {
-        if(this.m_Eintrittsjahr<1975||this.m_Eintrittsjahr>java.time.LocalDate.now().getYear()){
+        if(this.m_Eintrittsjahr<1975||this.m_Eintrittsjahr>Calendar.getInstance().get(Calendar.YEAR)){
             //Alert
         }
         else {
@@ -126,4 +127,10 @@ public class Person{
     public void setM_Pensum(double m_Pensum) {
         this.m_Pensum = m_Pensum;
     }
+
+    public static double CalculateLohn(double m_Salaer, double m_Pensum){
+        return((m_Salaer/100)*m_Pensum);
+    }
+
+
 }
