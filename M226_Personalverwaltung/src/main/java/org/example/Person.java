@@ -37,7 +37,6 @@ public class Person{
         setM_Name(Name);
         setM_Vorname(Vorname);
         sAnzahlPersonen++;
-
     }
     public Person(String Name, String Vorname, int Eintrittsjahr){
         setM_PersNr(sAnzahlPersonen);
@@ -131,6 +130,5 @@ public class Person{
     public static double CalculateLohn(double m_Salaer, double m_Pensum){
         return((m_Salaer/100)*m_Pensum);
     }
-
 
 }
