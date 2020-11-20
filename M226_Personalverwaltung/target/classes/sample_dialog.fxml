@@ -5,13 +5,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.DialogPageController">
    <children>
-      <Button fx:id="safe" layoutX="125.0" layoutY="188.0" mnemonicParsing="false" onAction="#safe_action" prefHeight="25.0" prefWidth="149.0" text="Safe" />
-      <TextField fx:id="prename" layoutX="125.0" layoutY="82.0" />
+      <TextField fx:id="prename" layoutX="126.0" layoutY="82.0" />
       <TextField fx:id="name" layoutX="126.0" layoutY="130.0" />
       <Text layoutX="41.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vorname" wrappingWidth="75.13671875" />
       <Text layoutX="41.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nachname" />
+      <Button fx:id="save" layoutX="128.0" layoutY="200.0" mnemonicParsing="false" onAction="#saving_action" prefHeight="32.0" prefWidth="162.0" text="save" />
    </children>
 </AnchorPane>

@@ -113,16 +113,14 @@ public class MainPageController {
     }
 
     public static void dialog(String Vorname, String Nachname){
-        System.out.println("Tet");
-        if (DialogPageController.name != null || DialogPageController.prename != null){
-            System.out.println("Tet");
-            Person p = new Person();
-            p.setM_Name(Nachname);
-            p.setM_Vorname(Vorname);
-            Personen.add(p);
-            m_lastPosition++;
-            
-        }
+        System.out.println(Vorname);
+        System.out.println(Nachname);
+        Person p = new Person();
+        p.setM_Name(Nachname);
+        p.setM_Vorname(Vorname);
+        Personen.add(p);
+        m_lastPosition++;
+
     }
 
 

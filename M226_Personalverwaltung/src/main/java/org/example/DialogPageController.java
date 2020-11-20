@@ -1,20 +1,22 @@
 package org.example;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.geometry.Pos;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 
-import java.awt.*;
 
 public class DialogPageController {
- @FXML
- static TextField prename;
- @FXML
- static TextField name;
- @FXML
- static Button safe;
 
  @FXML
- private void safe_action(){
-    MainPageController.dialog(String.valueOf(prename),String.valueOf(name));
+ static Button save;
+ @FXML
+ public TextField prename;
+ @FXML
+ public TextField name;
+
+ @FXML
+ private void saving_action(){
+  MainPageController.dialog(prename.getText(), name.getText());
  }
 }
