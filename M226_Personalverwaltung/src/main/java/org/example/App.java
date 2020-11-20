@@ -10,10 +10,16 @@ import javafx.stage.Stage;
 
 public class App extends  Application {
 
-    MainPageController mpc = new MainPageController();
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/sample.fxml"));
+        primaryStage.setScene(new Scene(root));
+        primaryStage.setResizable(false);
+        primaryStage.show();
+    }
+
+    public static void startDialog(Stage primaryStage) throws Exception {
+        Parent root = FXMLLoader.load(App.class.getResource("/sample_dialog.fxml"));
         primaryStage.setScene(new Scene(root));
         primaryStage.setResizable(false);
         primaryStage.show();
