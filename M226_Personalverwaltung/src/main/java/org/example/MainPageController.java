@@ -1,5 +1,7 @@
 package org.example;
 
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -120,7 +122,14 @@ public class MainPageController {
         p.setM_Vorname(Vorname);
         Personen.add(p);
         m_lastPosition++;
+    }
 
+    @FXML
+    public void remove_action() {
+        Person p = Personen.get(m_Position - 1);
+        Personen.remove(p);
+        m_lastPosition--;
+        OnLast();
     }
 
 

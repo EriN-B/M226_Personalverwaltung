@@ -19,8 +19,8 @@
       <Button fx:id="back_1" layoutX="197.0" layoutY="41.0" minWidth="41.0" mnemonicParsing="false" onAction="#OnPrevious" prefHeight="40.0" prefWidth="41.0" text="&lt;--" />
       <Button fx:id="forward_1" layoutX="334.0" layoutY="41.0" minWidth="41.0" mnemonicParsing="false" onAction="#OnNext" prefHeight="40.0" prefWidth="41.0" text="--&gt;" />
       <Button fx:id="forward_2" layoutX="398.0" layoutY="41.0" minWidth="41.0" mnemonicParsing="false" onAction="#OnLast" prefHeight="40.0" prefWidth="41.0" text="--&gt;|" />
-      <TextField fx:id="position" layoutX="258.0" layoutY="48.0" prefHeight="26.0" prefWidth="68.0" />
+      <TextField fx:id="position" disable="true" editable="false" layoutX="258.0" layoutY="48.0" prefHeight="26.0" prefWidth="68.0" />
       <Button fx:id="add" layoutX="461.0" layoutY="41.0" minWidth="41.0" mnemonicParsing="false" onAction="#btn_click_add" prefHeight="40.0" prefWidth="41.0" text="+" />
-      <Button fx:id="remove" layoutX="522.0" layoutY="41.0" minWidth="41.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="41.0" text="-" />
+      <Button fx:id="remove" layoutX="522.0" layoutY="41.0" minWidth="41.0" mnemonicParsing="false" onAction="#remove_action" prefHeight="40.0" prefWidth="41.0" text="-" />
    </children>
 </AnchorPane>
