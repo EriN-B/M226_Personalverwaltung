@@ -45,11 +45,14 @@ public class MainPageController {
     public static List<Person> Personen = new ArrayList<>();
     public static int m_Position = 0;
     public static int m_lastPosition = 0;
+    public static int Pnr = 1;
 
     public void initialize(){
         for (int i = 1; i <= 3; i++){
             Person p = new Person();
-            p.setM_Name("Neue Person"+i);
+            Pnr++;
+            p.setM_PersNr(i);
+            p.setM_Name("Mitarbeiter "+i);
             Personen.add(p);
             System.out.println(m_lastPosition++);
         }
@@ -59,7 +62,9 @@ public class MainPageController {
 
     private void FillForm(){
         Person p = Personen.get(m_Position - 1);
+        pin.setText(String.valueOf(p.getM_PersNr()));
         name.setText(p.getM_Name());
+        prename.setText(p.getM_Vorname());
         position.setText(String.valueOf(m_Position)+"/"+String.valueOf(m_lastPosition));
     }
 
@@ -70,30 +75,40 @@ public class MainPageController {
     private void OnFirst() { //back_2
         m_Position = 1;
         Person p = Personen.get(m_Position-1);
+        pin.setText(String.valueOf(p.getM_PersNr()));
         name.setText(p.getM_Name());
         prename.setText(p.getM_Vorname());
         position.setText(String.valueOf(1)+"/"+String.valueOf(m_lastPosition));
     }
     @FXML
     private void OnPrevious() {//back_1
-        m_Position--;
-        Person p = Personen.get(m_Position - 1);
-        name.setText(p.getM_Name());
-        prename.setText(p.getM_Vorname());
-        position.setText(String.valueOf(m_Position)+"/"+String.valueOf(m_lastPosition));
+        if(m_Position > 1) {
+            m_Position--;
+            System.out.println(m_Position);
+            Person p = Personen.get(m_Position - 1);
+            pin.setText(String.valueOf(p.getM_PersNr()));
+            name.setText(p.getM_Name());
+            prename.setText(p.getM_Vorname());
+            position.setText(String.valueOf(m_Position) + "/" + String.valueOf(m_lastPosition));
+        }
     }
     @FXML
     private void OnNext() {//forward_1
-        m_Position++;
-        Person p = Personen.get(m_Position - 1);
-        name.setText(p.getM_Name());
-        prename.setText(p.getM_Vorname());
-        position.setText(String.valueOf(m_Position)+"/"+String.valueOf(m_lastPosition));
+        if(m_Position < m_lastPosition) {
+            m_Position++;
+            System.out.println(m_Position);
+            Person p = Personen.get(m_Position - 1);
+            pin.setText(String.valueOf(p.getM_PersNr()));
+            name.setText(p.getM_Name());
+            prename.setText(p.getM_Vorname());
+            position.setText(String.valueOf(m_Position) + "/" + String.valueOf(m_lastPosition));
+        }
     }
     @FXML
     private void OnLast() {//forward_2
         m_Position = m_lastPosition;
         Person p = Personen.get(m_lastPosition-1);
+        pin.setText(String.valueOf(p.getM_PersNr()));
         name.setText(p.getM_Name());
         prename.setText(p.getM_Vorname());
         position.setText(String.valueOf(m_lastPosition)+"/"+String.valueOf(m_lastPosition));
@@ -101,7 +116,9 @@ public class MainPageController {
     @FXML
     private void discard_action(){
         Person p = Personen.get(m_Position-1);
+        pin.setText(String.valueOf(p.getM_PersNr()));
         name.setText(p.getM_Name());
+        prename.setText(p.getM_Vorname());
         position.setText(String.valueOf(m_Position)+"/"+String.valueOf(m_lastPosition));
     }
     @FXML
@@ -109,9 +126,11 @@ public class MainPageController {
         Person p = Personen.get(m_Position-1);
         p.setM_Name(name.getText());
         p.setM_Vorname(prename.getText());
+        p.setM_PersNr(Integer.valueOf(pin.getText()));
         position.setText(String.valueOf(m_Position)+"/"+String.valueOf(m_lastPosition));
         name.setText(p.getM_Name());
         prename.setText(p.getM_Vorname());
+        pin.setText(String.valueOf(p.getM_PersNr()));
     }
 
     public static void dialog(String Vorname, String Nachname){
@@ -120,6 +139,7 @@ public class MainPageController {
         Person p = new Person();
         p.setM_Name(Nachname);
         p.setM_Vorname(Vorname);
+        p.setM_PersNr(Pnr);
         Personen.add(p);
         m_lastPosition++;
     }
@@ -131,7 +151,6 @@ public class MainPageController {
         m_lastPosition--;
         OnLast();
     }
-
 
 //Met
 }

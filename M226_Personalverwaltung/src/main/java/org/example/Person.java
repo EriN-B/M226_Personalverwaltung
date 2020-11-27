@@ -50,7 +50,7 @@ public class Person{
         return m_PersNr;
     }
 
-    private void setM_PersNr(int m_PersNr) {
+    public void setM_PersNr(int m_PersNr) {
         this.m_PersNr = m_PersNr;
     }
 
